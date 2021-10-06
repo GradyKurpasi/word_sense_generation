@@ -26,24 +26,16 @@ class AbstractSource(abc.ABC):
     def __init__(self):
         super().__init__()
 
-    def open(self, source_address):
-        self._open(source_address)
+    @abc.abstractmethod
+    def open(self):
+        raise NotImplementedError
 
+    @abc.abstractmethod
     def close(self):
-        self._close
+        raise NotImplementedError
         
+    @abc.abstractmethod
     def read(self):
-        pass
-
-    @abc.abstractmethod
-    def _open(self, source_address):
-        raise NotImplementedError
-    
-    @abc.abstractmethod
-    def _close(self):
         raise NotImplementedError
 
-    @abc.abstractmethod
-    def _read(self):
-        raise NotImplementedError
 
